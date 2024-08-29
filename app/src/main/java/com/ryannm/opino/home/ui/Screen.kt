@@ -29,7 +29,7 @@ object Home {
                     PricesSection()
                     HeroSection()
                 }
-                MatchPredictionSection()
+                matchPredictionSection()
             }
         }
 

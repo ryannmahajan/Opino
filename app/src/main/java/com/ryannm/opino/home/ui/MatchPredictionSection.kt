@@ -12,11 +12,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyListScope
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -27,9 +24,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.ryannm.opino.core.ui.design_system.BigNoButton
+import com.ryannm.opino.core.ui.design_system.BigYesButton
 import com.ryannm.opino.core.ui.design_system.Card
 
-fun LazyListScope.MatchPredictionSection() {
+fun LazyListScope.matchPredictionSection() {
     val predictions = listOf(1,2,3)
     items(predictions.size) { _ ->
         SingleMatchPredictionCard()
@@ -82,25 +81,11 @@ fun SingleMatchPredictionCard() {
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Button(
-                    shape = RoundedCornerShape(8.dp),
-                    onClick = { /* Handle Yes click */ },
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2962FF)), // Blue color
-                    modifier = Modifier
-                        .weight(1f)
-                        .padding(end = 8.dp)
-                ) {
-                    Text(text = "Yes ₹ 5.3", color = Color.White)
+                BigYesButton ("Yes ₹ 5.3") {
+
                 }
-                Button(
-                    shape = RoundedCornerShape(8.dp),
-                    onClick = { /* Handle No click */ },
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF00C853)), // Green color
-                    modifier = Modifier
-                        .weight(1f)
-                        .padding(start = 8.dp)
-                ) {
-                    Text(text = "No ₹ 4.7", color = Color.White)
+                BigNoButton ("No ₹ 4.7") {
+
                 }
             }
         }
