@@ -13,7 +13,7 @@ fun Card(modifier: Modifier, content: @Composable() (ColumnScope.() -> Unit)) {
     androidx.compose.material3.Card(
         modifier = modifier,
         colors = CardDefaults.cardColors(
-            containerColor = Color.DarkGray
+            containerColor = Color(35, 35, 37)
         ),
       //  backgroundColor = Color(0xFF1F1F1F), // Dark background color maybe?
         shape = RoundedCornerShape(8.dp),    // Rounded corners

@@ -2,7 +2,6 @@ package com.ryannm.opino.core.ui.design_system
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
@@ -36,29 +35,31 @@ fun IconButton(
                 tint = Color.White,
                 modifier = Modifier.size(24.dp))
         }
-        text?.let { Text(it) }
+        text?.let {
+            Text(it,
+                color = Color.White)
+        }
     }
 }
 
 @Composable
-fun RowScope.BigYesButton(text: String = "No", onClick: () -> Unit) {
-    BigButton(color = Color(0xFF2962FF), text = text, onClick)
+fun RowScope.BigYesButton(modifier: Modifier = Modifier, text: String = "No", onClick: () -> Unit) {
+    BigButton(modifier, color = Color(39, 81, 200), text = text, onClick)
 }
 
 @Composable
-fun RowScope.BigNoButton(text: String = "No", onClick: () -> Unit) {
-    BigButton(color = Color(0xFF00C853), text = text, onClick)
+fun RowScope.BigNoButton(modifier: Modifier = Modifier, text: String = "No", onClick: () -> Unit) {
+    BigButton(modifier, color = Color(71, 194, 111), text = text, onClick)
 }
 
 @Composable
-private fun RowScope.BigButton(color:Color, text: String, onClick: () -> Unit) {
+private fun RowScope.BigButton(modifier: Modifier = Modifier, color:Color, text: String, onClick: () -> Unit) {
     Button(
         shape = RoundedCornerShape(8.dp),
         onClick = onClick,
         colors = ButtonDefaults.buttonColors(containerColor = color),
-        modifier = Modifier
+        modifier = modifier
             .weight(1f)
-            .padding(start = 8.dp)
     ) {
         Text(text = text, color = Color.White)
     }

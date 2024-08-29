@@ -47,22 +47,25 @@ fun TopBar() {
 
         Row(verticalAlignment = Alignment.CenterVertically) {
             var isLive by remember { mutableStateOf(false) }
+            val green = Color(71,194,111)
+            val trackGray = Color(40, 42, 44)
 
             Switch(
                 checked = isLive,
                 onCheckedChange = { isLive = it },
                 colors = SwitchDefaults.colors(
-                    checkedThumbColor = Color.Green,
-                    uncheckedThumbColor = Color.White
+                    checkedThumbColor = green,
+                    uncheckedThumbColor = Color.Black,
+                    checkedTrackColor = trackGray,
+                    uncheckedTrackColor = trackGray
                 )
             )
             Spacer(modifier = Modifier.width(8.dp))
 
             Text(
                 text = "LIVE",
-                color = if (isLive) Color.Green else Color.White,
+                color = if (isLive) green else Color.White,
                 fontSize = 18.sp,
-                fontWeight = FontWeight.Bold
             )
 
             Spacer(modifier = Modifier.width(16.dp))

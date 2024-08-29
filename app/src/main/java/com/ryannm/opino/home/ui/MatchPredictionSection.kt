@@ -12,18 +12,18 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyListScope
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.ryannm.opino.R
 import com.ryannm.opino.core.ui.design_system.BigNoButton
 import com.ryannm.opino.core.ui.design_system.BigYesButton
 import com.ryannm.opino.core.ui.design_system.Card
@@ -43,48 +43,53 @@ fun SingleMatchPredictionCard() {
             .fillMaxWidth()
     ) {
         Column(
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier.padding(16.dp, 16.dp, 16.dp, 16.dp)
         ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
+            Column(
+//                modifier = Modifier.padding(16.dp)
             ) {
-                // Title Text
-                Text(
-                    text = "Kolkata to win the match vs Mumbai?",
-                    color = Color.White,
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 18.sp,
-                    maxLines = 2
-                )
-                Spacer(modifier = Modifier.width(4.dp))
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    // Title Text
+                    Text(
+                        text = "Kolkata to win the match vs Mumbai?",
+                        color = Color.White,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 18.sp,
+                        maxLines = 2
+                    )
+                    Spacer(modifier = Modifier.width(4.dp))
 
-                // Logo Image
-                Icon(
-                    imageVector = Icons.Default.Star,
-                    contentDescription = "IPL",
-                    tint = Color.Yellow,
-                    modifier = Modifier.size(40.dp)
+                    // Logo Image
+                    Icon(
+                        painter = painterResource(R.drawable.ipl_logo),
+                        contentDescription = "IPL",
+                        modifier = Modifier.size(40.dp),
+                        tint = Color.Unspecified
+                    )
+                }
+                Spacer(modifier = Modifier.height(8.dp))
+                // Subtitle Text
+                Text(
+                    text = "H2H last 5 T20: Kolkata 4, Mumbai 1, DRAW 0",
+                    color = Color.White,
+                    fontSize = 14.sp
                 )
+                Spacer(modifier = Modifier.height(16.dp))
+                // Yes/No Buttons
             }
-            Spacer(modifier = Modifier.height(8.dp))
-            // Subtitle Text
-            Text(
-                text = "H2H last 5 T20: Kolkata 4, Mumbai 1, DRAW 0",
-                color = Color.White,
-                fontSize = 14.sp
-            )
-            Spacer(modifier = Modifier.height(16.dp))
-            // Yes/No Buttons
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                BigYesButton ("Yes ₹ 5.3") {
+                BigYesButton(text = "Yes ₹ 5.3") {
 
                 }
-                BigNoButton ("No ₹ 4.7") {
+                Spacer(modifier = Modifier.width(12.dp))
+                BigNoButton(text = "No ₹ 4.7") {
 
                 }
             }

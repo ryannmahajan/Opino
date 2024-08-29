@@ -24,7 +24,7 @@ fun BottomBar() {
         contentColor = Color.White
     ) {
         Row (
-            modifier = Modifier.padding(16.dp),
+            modifier = Modifier.fillMaxWidth().padding(16.dp),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             IconButton(imageVector = Icons.Default.Home, text = "Home") {
