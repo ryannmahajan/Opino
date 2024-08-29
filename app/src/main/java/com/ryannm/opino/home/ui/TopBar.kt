@@ -1,4 +1,4 @@
-package com.ryannm.opino.home
+package com.ryannm.opino.home.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -29,7 +29,7 @@ import androidx.compose.ui.unit.sp
 import com.ryannm.opino.core.ui.design_system.IconButton
 
 @Composable
-fun TopNBar() {
+fun TopBar() {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -79,8 +79,8 @@ fun TopNBar() {
 
 @Composable
 @Preview
-fun TopBarPreview1() {
+private fun preview() {
     Column (modifier = Modifier.fillMaxSize().background(Color.Black)) {
-        TopNBar()
+        TopBar()
     }
 }
